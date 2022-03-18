@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <style>
+      .center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .stopit {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .españa {
+        background: linear-gradient(
+          to right,
+          rgb(190, 0, 39) 0 35%,
+          rgb(247, 244, 0) 35% 65%,
+          rgb(190, 0, 39) 65% 100%
+        );
+        background-size: 200% 200%;
+
+        -webkit-animation: AnimationName 5s ease infinite;
+        -moz-animation: AnimationName 5s linear infinite;
+        -o-animation: AnimationName 5s ease infinite;
+        animation: AnimationName 4s ease infinite;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+
+      @-webkit-keyframes AnimationName {
+        0% {
+          background-position: 35% 50%;
+        }
+        50% {
+          background-position: 65% 50%;
+        }
+        100% {
+          background-position: 35% 50%;
+        }
+      }
+      @-moz-keyframes AnimationName {
+        0% {
+          background-position: 35% 50%;
+        }
+        50% {
+          background-position: 65% 50%;
+        }
+        100% {
+          background-position: 35% 50%;
+        }
+      }
+      @-o-keyframes AnimationName {
+        0% {
+          background-position: 35% 50%;
+        }
+        50% {
+          background-position: 65% 50%;
+        }
+        100% {
+          background-position: 35% 50%;
+        }
+      }
+      @keyframes AnimationName {
+        0% {
+          background-position: 35% 50%;
+        }
+        50% {
+          background-position: 65% 50%;
+        }
+        100% {
+          background-position: 35% 50%;
+        }
+      }
+    </style>
+  </head>
+  <body style="margin: 0; padding: 0">
+    <div class="center">
+      <h1>ESPAÑA o españa</h1>
+      <p>
+        Durante la Guerra de la Independencia, Napoleón se mostró a España como
+        el regenerador de la política nacional y el salvador que habría de
+        acabar con los vestigios del Antiguo Régimen. Tras las «renuncias de
+        Bayona» Napoleón decidió convocar en Bayona una Junta de notables con la
+        finalidad de que ratificaran su decisión de elevar al Trono de España a
+        su hermano José Bonaparte. Sin embargo, Murat convenció a Napoleón de
+        que la Junta participase en la elaboración de un texto constitucional de
+        debía regir España para sujetarla mejor al Corso. La convocatoria de la
+        que habría de denominarse Junta de Bayona se publicó en la Gaceta de
+        Madrid de 24 de mayo de 1808; en ella, se fijaba su composición
+        estamental, y se establecía que los diputados quedarían vinculados por
+        el mandato imperativo que les impusiesen las provincias. Sin embargo,
+        los intentos de Napoleón de rodearse de las élites intelectuales
+        españolas sólo surtió un efecto parcial: si bien algunos relevantes
+        pensadores y estadistas como Cabarrús se adscribieron a la causa
+        francesa, las mentes más preclaras de los albores del XIX (desde
+        Jovellanos hasta los jóvenes liberales, como Toreno, Argüelles o Blanco
+        White) no siguieron la causa francesa ni apoyaron al gobierno
+        afrancesado, con lo que la Junta de Bayona quedó reducida a una pobre
+        reunión de menos de un centenar de individuos (75 en la primera sesión y
+        91 en la última), en su mayoría procedentes de la nobleza y de la
+        burocracia borbónica, que no podían constituirse en auténtica
+        representación nacional.
+      </p>
+    </div>
+    <button class="stopit">Stop it</button>
+
+    <script>
+      $("body")
+        .children()
+        .each(function () {
+          $(this).html(
+            $(this)
+              .html()
+              .replace(
+                /españa/gi,
+                '<span class="españa"><span class="españa_esp">ESP</span><span class="españa_aña">AÑA</span></span>'
+              )
+          );
+        });
+
+      const españas = $(".españa");
+      console.info(españas);
+
+      let percent1 = 25;
+      let percent2 = 75;
+
+      const handler_id = setInterval(() => {
+        españas.each(function (index, españa) {
+          // console.info($(this).css("background"));
+          // $(this).css("color", "yellow");
+          let current_grad = $(this).css("background");
+          // console.log(current_grad);
+          const matches = current_grad.match(/\d+%/g);
+          // console.info(matches);
+          matches.forEach((match) => {
+            // console.log(match, typeof match);
+            if (match !== "0%")
+              current_grad = current_grad.replace(
+                match,
+                Number.parseInt(match.replace("%", "")) - 3
+              );
+          });
+          //   console.info(
+          //     `rgba(0, 0, 0, 0) linear-gradient(
+          //   to right,
+          //   rgb(190, 0, 39) 0 ${percent1 > 0 ? percent1 + "%" : 0},
+          //   rgb(247, 244, 0) ${percent1 > 0 ? percent1 + "%" : 0} ${percent2}%,
+          //   rgb(190, 0, 39) ${percent2}% ${Math.min(percent2 + 25, 100)}%
+          //   rgb(247, 244, 0) ${Math.min(percent2 + 25, 100)}% 100%,
+          // ) repeat scroll 0% 0% padding-box text`.replace(/\n/gm, " ")
+          //   );
+          percent1 -= 1;
+          percent2 -= 1;
+          //   $(this).css("background-clip", "text");
+          //   $(this).css("-webkit-background-clip", "text");
+          //   $(this).css(
+          //     "background",
+          //     `rgba(0, 0, 0, 0) linear-gradient(
+          //   to right,
+          //   rgb(190, 0, 39) 0 ${percent1 > 0 ? percent1 + "%" : 0},
+          //   rgb(247, 244, 0) ${percent1 > 0 ? percent1 + "%" : 0} ${percent2}%,
+          //   rgb(190, 0, 39) ${percent2}% ${Math.min(percent2 + 25, 100)}%
+          //   rgb(247, 244, 0) ${Math.min(percent2 + 25, 100)}% 100%,
+          // ) repeat scroll 0% 0% padding-box text`.replace(/\n/gm, " ")
+          //   );
+        });
+      }, 200);
+
+      $(".stopit").on("click", () => {
+        clearInterval(handler_id);
+      });
+    </script>
+  </body>
+</html>

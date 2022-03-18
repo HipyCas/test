@@ -1,0 +1,114 @@
+:root {
+  --primary: #00846c;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  background-image: url("https://www.viajerosporelmundo.com/wp-content/uploads/2019/05/CentroHistorico.jpg");
+  background-position: center;
+}
+
+.triangle-bg {
+  position: absolute;
+  bottom: 25vw;
+  left: 25vw;
+  background: #fff;
+  transform: rotate(-45deg);
+  height: 150vh;
+  width: 200vw;
+}
+
+#triangle-topleft {
+  width: 0;
+  height: 0;
+  border-top: 100vh solid #fff;
+  border-left: 100vw solid transparent;
+  position: absolute;
+}
+
+#container #triangle-topleft,
+#overlay {
+  position: absolute;
+  color: white;
+  right: 0;
+}
+
+img {
+  z-index: 2;
+}
+
+.title-img {
+  position: absolute;
+
+  right: 10vw;
+  top: 20vh;
+}
+
+.subtitle-img {
+  position: absolute;
+  right: 15vw;
+  top: 33vh;
+}
+
+#inscription {
+  /* align-items: center; */
+  justify-content: center;
+  padding: 5rem;
+  background-color: #00846c;
+}
+
+#inscription > h2 {
+  font-size: 2rem;
+  color: white;
+}
+
+#inscription > form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#inscription > form > input {
+  width: 40%;
+}
+
+input[required]::after {
+  content: "*";
+  color: red;
+}
+
+input {
+  border: none;
+  border-bottom: 3px solid #fff;
+  background-color: transparent;
+  padding: 0.5em 0.9em;
+}
+
+input::placeholder {
+  color: #fff;
+}
+
+.secondary-btn {
+  border: 3px solid #fff;
+  border-radius: 4px;
+  background-color: transparent;
+  color: white;
+  padding: 0.5em 1em;
+}
+
+.secondary-btn:hover {
+  background-color: white;
+  color: var(--primary);
+}

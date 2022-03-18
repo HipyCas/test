@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AERELABO Granada</title>
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="triangle-topleft"></div>
+      <div id="overlay">Microsoft</div>
+    </div>
+    <img class="title-img" src="./Title.png" alt="AERELABO" />
+    <img class="subtitle-img" src="./Subtitle.png" alt="LX Granada" />
+    <section class="hero"></section>
+    <section id="inscription">
+      <h2>Inscríbete!</h2>
+      <form
+        action="https://send.pageclip.co/2lH3aRLwvoWqkvvadFtCUZoN3cccdDTR/inscripciones"
+        method="post"
+      >
+        <!-- Replace these inputs with your own. Make sure they have a "name" attribute! -->
+        <input type="text" name="name" placeholder="Roscoe Jones" required />
+        <input
+          type="email"
+          name="email"
+          placeholder="email@example.com"
+          required
+        />
+
+        <!-- This button will have a loading spinner. Keep the inner span for best results. -->
+        <button type="submit" class="secondary-btn">
+          <span>Send</span>
+        </button>
+      </form>
+    </section>
+
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+  </body>
+</html>
